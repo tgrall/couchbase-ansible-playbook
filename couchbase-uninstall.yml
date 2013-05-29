@@ -1,0 +1,16 @@
+---
+# 
+# Uninstall Couchbase cluster from a single command
+#
+- name: Couchbase Installation
+  hosts: all
+  user: root
+   
+  tasks:
+  - name: Uninstall Couchbase
+    shell: dpkg -r couchbase-server
+  - name: Delete files (just to have a fresh install)
+    file: path=/opt/couchbase/ state=absent
+    
+    
+    

@@ -1,0 +1,7 @@
+[couchbase-main]
+vm1.grallandco.com
+
+[couchbase-nodes]
+vm2.grallandco.com
+vm3.grallandco.com
+
