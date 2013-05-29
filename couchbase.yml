@@ -24,7 +24,7 @@
 
   tasks:
   - name: Configure main node
-    shell: /opt/couchbase/bin/couchbase-cli cluster-init -c 127.0.0.1:8091  --cluster-init-username=${admin_user} --cluster-init-password=${admin_password} --cluster-init-port=8091 --cluster-init-ramsize=512 
+    shell: /opt/couchbase/bin/couchbase-cli cluster-init -c 127.0.0.1:8091  --cluster-init-username=${admin_user} --cluster-init-password=${admin_password} --cluster-init-port=8091 --cluster-init-ramsize=${cluster_ram_quota} 
 
   - name: Create shell script for configuring main node
     action: template src=couchbase-add-node.j2 dest=/tmp/addnodes.sh mode=750
@@ -41,5 +41,5 @@
   - name: Rebalance the cluster
     shell: /opt/couchbase/bin/couchbase-cli rebalance -c 127.0.0.1:8091 -u ${admin_user} -p ${admin_password}      
   
-  - name: create default bucket
-    shell: /opt/couchbase/bin/couchbase-cli bucket-create -c 127.0.0.1:8091 --bucket=default --bucket-type=couchbase --bucket-port=11211 --bucket-ramsize=200  --bucket-replica=2 -u ${admin_user} -p ${admin_password}
+  - name: create bucket ${bucket_name} with ${num_replicas} replicas
+    shell: /opt/couchbase/bin/couchbase-cli bucket-create -c 127.0.0.1:8091 --bucket=${bucket_name} --bucket-type=couchbase --bucket-port=11211 --bucket-ramsize=${bucket_ram_quota}  --bucket-replica=${num_replicas} -u ${admin_user} -p ${admin_password}

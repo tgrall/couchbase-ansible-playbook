@@ -16,11 +16,11 @@ This file contains 2 groups of server:
 [couchbase-main] : select one of your server, this one will be used to initialize and configure the cluster.
 [couchbase-nodes] : all other nodes that will be added to the cluster.
 
-Enter the Administrator username, password and bucket name in the ./group_vars/all/file
+Enter the Administrator information and server configuration (RAM Quotas, Bucket name, Replicas) in the ./group_vars/all file
 
 Run the Ansible command
 <pre>
-./bin/ansible-playbook -i ./couchbase/hosts  ./couchbase/couchbase.yml
+ansible-playbook -i ./hosts  ./couchbase.yml
 </pre>
 
 
@@ -41,6 +41,6 @@ Uninstall the Couchbase server and delete all files (Warning you will lose your 
 
 Run the Ansible command
 <pre>
-./bin/ansible-playbook -i ./couchbase/hosts  ./couchbase/couchbase-uninstall.yml
+ansible-playbook -i ./hosts ./couchbase-uninstall.yml
 </pre>
 
