@@ -18,7 +18,7 @@
   - name: Install Couchbase .deb file on all machines
     shell: dpkg -i ~/couchbase-server-enterprise_x86_64_2.0.1.deb
      
-- name: Configure the first node (create cluster and one bucket)
+- name: Initialize the cluster and add the nodes to the cluster
   hosts: couchbase-main
   user: root 
 
