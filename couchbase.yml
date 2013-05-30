@@ -32,12 +32,6 @@
   - name: Launch config script
     action: shell /tmp/addnodes.sh
   
-
-- name: Configure the first node (create cluster and one bucket) PORT 8091 
-  hosts: couchbase-main
-  user: root
-
-  tasks:
   - name: Rebalance the cluster
     shell: /opt/couchbase/bin/couchbase-cli rebalance -c 127.0.0.1:8091 -u ${admin_user} -p ${admin_password}      
   
