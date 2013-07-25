@@ -10,7 +10,7 @@
   tasks:
 
   - name: download Couchbase package
-    get_url: url=http://packages.couchbase.com/releases/2.0.1/couchbase-server-enterprise_x86_64_2.0.1.deb dest=~/.
+    get_url: url=http://packages.couchbase.com/releases/2.1.0/couchbase-server-enterprise_x86_64_2.1.0.deb dest=~/.
  
   - name: Install dependencies
     apt: pkg=libssl0.9.8 state=present
