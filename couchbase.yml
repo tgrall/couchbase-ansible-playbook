@@ -23,6 +23,9 @@
   user: root 
 
   tasks:
+  - name: Sleep for 30 seconds to finish installation
+    pause: seconds=30
+
   - name: Configure main node
     shell: /opt/couchbase/bin/couchbase-cli cluster-init -c 127.0.0.1:8091  --cluster-init-username=${admin_user} --cluster-init-password=${admin_password} --cluster-init-port=8091 --cluster-init-ramsize=${cluster_ram_quota} 
 
